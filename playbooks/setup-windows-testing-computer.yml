@@ -1,0 +1,14 @@
+---
+# Usage: ansible-playbook setup-windows-testing-computer.yml
+- name: Install required programs on Windows
+  host: seinfeld
+  become: yes
+  tasks:
+    - name: Install programs with the chocolatey package manager
+      win_chocolatey:
+        - name: "{{ item }}"
+      with_items:
+        - dropbox
+        - google-chrome
+        - notepad++
+        - openoffice
