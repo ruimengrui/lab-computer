@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Upgrade all packages installed with chocolatey
+      win_chocolatey:
+        name: all
+        state: latest

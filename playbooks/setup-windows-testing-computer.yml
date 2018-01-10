@@ -1,14 +1,17 @@
 ---
 # Usage: ansible-playbook setup-windows-testing-computer.yml
 - name: Install required programs on Windows
-  host: seinfeld
+  host: localhost
   become: yes
   tasks:
+      # Module docs: http://docs.ansible.com/ansible/latest/win_chocolatey_module.html
+      # For more packages: https://chocolatey.org/packages
     - name: Install programs with the chocolatey package manager
       win_chocolatey:
         - name: "{{ item }}"
       with_items:
         - dropbox
-        - google-chrome
-        - notepad++
-        - openoffice
+        - GoogleChrome
+        - notepadplusplus
+        - OpenOffice
+        - git
